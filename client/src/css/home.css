@@ -1,0 +1,66 @@
+.home {
+    padding: 0;
+}
+
+.home .box {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-size: cover !important;
+    background-position: center !important;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 2rem 9%;
+}
+
+.home .box.second {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.home .box .content {
+    width: 50rem;
+}
+
+.home .box .content span {
+    font-size: 3rem;
+    color: #10221b;
+}
+
+.home .box .content h3 {
+    font-size: 3rem;
+    color: #219150;
+    padding-top: .5rem;
+    text-transform: uppercase;
+}
+
+.home .box .content {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2.5%;
+}
+
+.home .box .content p {
+    line-height: 2;
+    color: #10221b;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 3rem;
+    color: #10221b;
+}
