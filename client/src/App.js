@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Labs from './components/Labs';
+import Achievements from './components/Achievements';
+import {Routes, Route} from 'react-router-dom';
+import Main from './components/Main';
+import Labpage from './components/Labpage';
 
 function App() {
 
@@ -29,13 +36,21 @@ function App() {
   }
 
   return (
-    <div className="App" >
-      <form action="" id="form" onSubmit={fileUpload}>
-        <input type="file" id="file"onChange={saveFile} />
-        <button type='submit' />
+    // <div className="App" >
+    //   <form action="" id="form" onSubmit={fileUpload}>
+    //     <input type="file" id="file"onChange={saveFile} />
+    //     <button type='submit' />
+
+    //   </form>
+    // </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path='/labpage/:id' element={<Labpage />}/>
         
-      </form>
-    </div>
+      </Routes>
+      
+    </>
   );
 }
 

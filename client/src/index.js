@@ -6,14 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Labs from './components/Labs';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <Navbar />
-    <Home />
-    <Labs />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+
   </React.StrictMode>
 );
 
