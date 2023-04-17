@@ -8,6 +8,7 @@ import Achievements from './components/Achievements';
 import {Routes, Route} from 'react-router-dom';
 import Main from './components/Main';
 import Labpage from './components/Labpage';
+import Pagenot from  './components/Pagenot';
 
 function App() {
 
@@ -47,9 +48,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path='/labpage/:id' element={<Labpage />}/>
-        
+        <Route path="*" element={<Pagenot />} />
       </Routes>
-      
     </>
   );
 }
