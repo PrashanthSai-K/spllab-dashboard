@@ -5,22 +5,32 @@ const bodyparser = require('body-parser');
 const sql = require('mysql');
 const path = require('path');
 
-var labname="";
-
 const app = express();
+
+app.use('/img',express.static('public/images'));
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
-app.use('/img',express.static('/public/images'));
+
 
 const db = sql.createConnection({
     host:"localhost",
     user:"root",
     password:"",
     database:"special_lab"
-
 })
 
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        const uploadDir = path.join(__dirname, 'public', 'images');
+        cb(null,uploadDir)
+    },
+    filename: function(req,file,cb){
+        cb(null,file.fieldname+'-'+Date.now()+path.extname(file.originalname));
+    }
+})
+
+const upload = multer({storage:storage});
 
 app.get("/labdata/:id",(req,res)=>{
     const id = req.params.id;
@@ -45,7 +55,22 @@ app.get("/labproject/:id",(req,res)=>{
     })
 })
 
+//receiving formdata from client
+//here upload.single("image") image-name is the name we speciied in formdata
+app.post('/addachieve',upload.single('image'),(req,res)=>{
 
+    const data = req.body;
+    console.log(data)
+    console.log(req.file.filename)
+    const query = "INSERT INTO achievements VALUES (?,?,?,?,?)"
+
+    db.query(query,['DEFAULT',data.labcode,data.name,data.name,req.file.filename],(err,resu)=>{
+        if (err) console.log(err)
+        else{
+            res.send(resu)
+        }
+    })
+})
 
 
 app.listen(5000, ()=>{

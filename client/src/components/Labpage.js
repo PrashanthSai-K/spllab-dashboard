@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import {useEffect,useState} from 'react';
 import axios from 'axios';
 import {Routes, Route} from 'react-router-dom';
-import Achievements from './Achievements';
-import Projects from './Projects';
+import Achievements from './achievements/Achievements';
+import Projects from './projects/Projects';
 
 
 
