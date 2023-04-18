@@ -14,11 +14,21 @@ app.use(bodyparser.urlencoded({extended:true}));
 
 
 const db = sql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"special_lab"
+    host:"121.200.55.42",
+    user:"lab",
+    password:"Spl@765",
+    database:"LAB",
+    port:"4063"
 })
+
+db.connect((err) => {
+    if (err) {
+      console.error('Error connecting to SQL server: ', err);
+      return;
+    }
+    console.log('Connected to SQL server!');
+})
+
 
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
@@ -69,6 +79,14 @@ app.post('/addachieve',upload.single('image'),(req,res)=>{
         else{
             res.send(resu)
         }
+        
+    })
+})
+
+app.get("/lablist", (req,res)=>{
+    db.query("SELECT * FROM labdetails", (err,result)=>{
+        if (err) console.log(err)
+        res.send(result);
     })
 })
 

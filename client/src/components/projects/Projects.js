@@ -26,9 +26,9 @@ const Projects = () => {
 
                 <div key={item.id}>  
                     <h1>{item.labcode}</h1>
-                    <h2>{item.project_name}</h2>
-                    <h2>{item.project_description}</h2>
-                    <h2>{item.project_image}</h2>
+                    <h2>{item.pro_name}</h2>
+                    <h2>{item.pro_desc}</h2>
+                    <img src={`http://localhost:5000/img/${item.pro_image}`} alt="" style={{width:"30%"}}/>
                 </div>
             )
         })}
