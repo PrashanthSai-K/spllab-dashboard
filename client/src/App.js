@@ -7,6 +7,7 @@ import Main from './components/landing page/Main';
 import Labpage from './components/Labpage';
 import Pagenot from  './components/errors/Pagenot';
 import AchieveReuest from './components/achievements/AchieveReuest';
+import ProjectRequest from './components/projects/ProjectRequest';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path='/labpage/:id' element={<Labpage />}/>
         <Route path='/addachieve' element={<AchieveReuest />} />
+        <Route path='/addprojects' element={<ProjectRequest />} />
         <Route path="*" element={<Pagenot />} />
       </Routes>
     </>

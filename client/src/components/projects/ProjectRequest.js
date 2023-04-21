@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import '../../css/achieverequest.css'
+import React from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
-const AchieveReuest = () => {
+const ProjectRequest = () => {
 
     const [data, setData] = useState({  //State object to store the form values
         name: "",
@@ -26,11 +26,11 @@ const AchieveReuest = () => {
         formData.append("labcode", data.labcode)
         formData.append("name", data.name);
         formData.append("image", data.image)
-        
+
         //Posting my data to server via axios 
         //Using try catch to catch any exception error
         try {
-            const res = await axios.post("http://localhost:5000/addachieve", formData);
+            const res = await axios.post("http://localhost:5000/addprojects", formData);
             console.log(res)
         } catch (err) {
             console.log(err)
@@ -38,12 +38,13 @@ const AchieveReuest = () => {
     }
 
 
+
     return (
         <>
             <form encType='multipart/form-data' onSubmit={formSubmit}>
                 <label htmlFor="labcode">Labcode</label>
                 <input type="text" htmlFor="labcode" onChange={handleInputChange} name="labcode" value={data.labcode} />
-                <label htmlFor="name">Achievements Name</label>
+                <label htmlFor="name">Projects Name</label>
                 <input type="text" htmlFor="name" onChange={handleInputChange} name="name" value={data.name} />
                 <label htmlFor="image">Image</label>
                 <input type="file" name='image' onChange={handleInputChange} />
@@ -53,4 +54,4 @@ const AchieveReuest = () => {
     )
 }
 
-export default AchieveReuest
+export default ProjectRequest
