@@ -56,6 +56,7 @@ const Navbar = (props) => {
                                 onSuccess={googleLogin}
                                 onError={(err) => console.log(err)}
                                 buttontext='Login'
+                                useOneTap
                             /></a>
                 }
             </nav>

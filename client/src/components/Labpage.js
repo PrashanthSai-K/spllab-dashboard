@@ -13,7 +13,7 @@ const Labpage = () => {
 
   return (
     <>  
-        
+
         <Achievements /> 
         <Projects />
 
