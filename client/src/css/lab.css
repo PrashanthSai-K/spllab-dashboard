@@ -1,36 +1,45 @@
 .category .box-container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(29rem, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+
   }
   
   .category .box-container .box .btn1 {
-    margin-top: 1rem;
-    display: inline-block;
-    border: 0.1rem solid #10221b;
+    width: 150px;
     border-radius: 10px;
-    color: #10221b;
-    cursor: pointer;
-    background: none;
-    font-size: 1rem;
-    padding: .2rem .5rem;
+    padding: 10px 20px 10px 20px;
+    border:none;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(63, 3, 88);
+    color: #ffffff;
+    font-family:"Iceland";
+
   }
   
   .category .box-container .box .btn1:hover {
-    background: #10221b;
-    color: #fff;
+    color: rgb(63, 3, 88);
+    background-color: white;
+    box-shadow: rgb(63,3,88) 0px 2px 20px 0px;
+    cursor: pointer;
   }
   .category .box-container .box {
     text-align: center;
-    padding: .5rem;
+    width: 300px;
+    height: 250px;
+    margin-top: 2%;
+    margin-left: 2%;
   }
   
   .category .box-container .box:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
     border-radius: 10px;
-    background-color: #fff;   
+    background-color: #ffffff; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
   
   .active {
@@ -41,12 +50,19 @@
     height: 8rem;
     width: 8rem;
     border-radius: 50%;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
   }
   
   .category .box-container .box h5 {
     font-size: 2rem;
-    color: #219150;
+    color: black;
+    padding-top: 5%;
+  }
+  .category  h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom:5%;
+    color: orangered;
   }
   
   .category .box-container .box p {

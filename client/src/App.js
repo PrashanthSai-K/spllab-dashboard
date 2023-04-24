@@ -8,6 +8,7 @@ import Labpage from './components/Labpage';
 import Pagenot from  './components/errors/Pagenot';
 import AchieveReuest from './components/achievements/AchieveReuest';
 import ProjectRequest from './components/projects/ProjectRequest';
+import Alllabs from './components/landing page/Alllabs';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='/labpage/:id' element={<Labpage />}/>
         <Route path='/addachieve' element={<AchieveReuest />} />
         <Route path='/addprojects' element={<ProjectRequest />} />
+        <Route path='/alllabs' element={<Alllabs />} />
         <Route path="*" element={<Pagenot />} />
       </Routes>
     </>

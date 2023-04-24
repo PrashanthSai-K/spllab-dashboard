@@ -6,7 +6,7 @@ import Labs from './Labs'
 const Main = () => {
   return (
     <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Home />
         <Labs />
     </>

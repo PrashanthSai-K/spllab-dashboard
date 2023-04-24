@@ -1,66 +1,114 @@
-.home {
+.body{
     padding: 0;
-}
-
-.home .box {
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    margin:0;
+    
+    
+    
+  }
+  .main-container{
+    height: 100vh;
+  
+  }
+  .home-container{
+    height: 80vh;
+    width: 95%;
+    background-position: center;
+    object-fit: cover;    
+    border-radius: 40px;
+  }
+  
+  .header{
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    gap: 12%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    
+    font-weight: 900;
+    justify-content: center;
     align-items: center;
-    background-size: cover !important;
-    background-position: center !important;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    padding: 2rem 9%;
-}
+   
+    background-color: #ffffff;
+    height: 10vh;
+  }
+  
+  
+  .left-header{
+      padding-left: 7%;
+      width: 30%;
+      font-size: 50px;
+      color:orangered;
+      transition: all ease-in-out 0.9;
+      cursor: pointer;
+     
+    
+      
+  }
+  .right-header{
+    display: flex;
+    list-style: none;
+    width: 70%;
+    justify-content: space-evenly;
+    padding-right: 8%;
+    font-size: 25px;
+    
+   
+    
+    
+  }
+  .right-header > li:hover{
+    color:orangered;
+    transform: scale(1.1,1.1);
+    text-shadow: rgb(255, 69, 0) 0px 2px 20px 0px;
+    cursor: pointer;
+  
+  }
+  
+  .home-container{
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+   
+    
+  }
+  
+  .home-content1 , .home-content2{
+   font-size: 70px;
+   line-height: 60px;
+   font-weight: bold;
+   color: #f9f7f7; 
+   font-family:"Iceland";
 
-.home .box.second {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-}
-
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-.home .box .content {
-    width: 50rem;
-}
-
-.home .box .content span {
-    font-size: 3rem;
-    color: #10221b;
-}
-
-.home .box .content h3 {
-    font-size: 3rem;
-    color: #219150;
-    padding-top: .5rem;
-    text-transform: uppercase;
-}
-
-.home .box .content {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 2.5%;
-}
-
-.home .box .content p {
-    line-height: 2;
-    color: #10221b;
-    font-size: 1.5rem;
-    padding: 1rem 0;
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 3rem;
-    color: #10221b;
-}
+   
+  }
+  .home-content3{
+    font-size: 25px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    width: 70%;
+    font-weight: 400;
+    color: #f9f7f7; 
+    font-family:"Iceland";
+   }
+   .home-button{
+    width: 150px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    border:none;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: orangered;
+    color: #ffffff;
+    font-family:"Iceland";  
+   }
+  
+   .home-button:hover{
+    color: orangered;
+    background-color: white;
+    box-shadow: rgb(255, 69, 0) 0px 2px 20px 0px;
+    cursor: pointer;
+  
+   }

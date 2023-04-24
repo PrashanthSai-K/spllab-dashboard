@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import '../../css/lab.css';
+import React from 'react';
 import axios from 'axios';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import "../../css/lab.css";
 
-
-const Labs = () => {
-
+const Alllabs = () => {
+  
     const [labname, setLabname] = useState("ELLO");
 
     const [labData, setLabData] = useState([]);
@@ -38,7 +38,7 @@ const Labs = () => {
 
             <h1 className="heading"># INOVATIVE LABS</h1>
             <div className="box-container">
-                {labData.slice(0,8).map((data) => {
+                {labData.map((data) => {
 
                     return (
                         <Link to={`/labpage/${data.labcode}`}>  
@@ -50,19 +50,15 @@ const Labs = () => {
                         </Link>
                     )
                 })}
-                <Link to={'/alllabs'}>
-                <div className="box">
-                    <img src="./images/circle-arrow-right-solid.svg" alt="" />
-                    <p></p>
-                    <a href="#" className="btn1">view all labs</a>
-                </div>
-                </Link>
+
+
             </div>
 
         </section>
 
 
     )
+
 }
 
-export default Labs
+export default Alllabs
