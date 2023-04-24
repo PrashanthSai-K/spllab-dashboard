@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import {useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Achievements from './achievements/Achievements';
 import Projects from './projects/Projects';
+import CommonLanding from './commonpages/CommonLanding';
+import CommonNavbar from './commonpages/CommonNavbar';
 
 
 
@@ -12,10 +14,15 @@ const Labpage = () => {
 
 
   return (
-    <>  
-        {/* <Home /> */}
-        <Achievements /> 
-        <Projects />
+
+    <>
+      <section id='labhome-section'>
+        <CommonNavbar />
+        <CommonLanding />
+      </section>
+
+      <Achievements />
+      <Projects />
 
     </>
   )

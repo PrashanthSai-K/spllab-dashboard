@@ -3,20 +3,10 @@ import '../../css/home.css';
 
 const Home = () => {
     return (
-        
+
 
         <div class="main-container">
-        <div class="header">
-           <div class="left-header">Special Lab</div>
-           <div class="right-header">
-              <li>Home</li>
-              <li>Achievements</li>
-              <li>Projects</li>
-              <li>Media</li>
-              <li>Labs</li>
-              <li>Contact Us</li>
-           </div>
-        </div>
+      
         <center>
            <div class="home-container" style={{background:"url(./images/bit.jpg)", backgroundSize:"100%" ,backgroundRepeat: "no-repeat", backgroundSize:"cover"}}>
               <div class="home-content1">Welcome!!</div>
@@ -29,6 +19,6 @@ const Home = () => {
      
      </div>
     )
-    }
+}
 
 export default Home
