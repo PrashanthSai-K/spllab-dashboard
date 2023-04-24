@@ -6,22 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Labs = () => {
 
-    const [labname, setLabname] = useState("ELLO");
-
     const [labData, setLabData] = useState([]);
-
-    const hello = async () => {
-
-        try {
-            const data = { "labname": labname }
-
-            const req = await axios.post("http://localhost:5000/upload", data);
-            console.log(req);
-        } catch (er) {
-            console.log(er)
-        }
-
-    }
 
     useEffect(() => {
         async function fetchData() {
@@ -30,8 +15,7 @@ const Labs = () => {
                 .catch((err) => { console.log(err) });
         }
         fetchData();
-    })
-
+    },[])
 
     return (
         <section className="category">
@@ -50,7 +34,6 @@ const Labs = () => {
                         </Link>
                     )
                 })}
-
                 <div className="box">
                     <img src="./images/circle-arrow-right-solid.svg" alt="" />
                     <p></p>
@@ -58,10 +41,7 @@ const Labs = () => {
                 </div>
 
             </div>
-
         </section>
-
-
     )
 }
 

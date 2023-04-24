@@ -16,9 +16,11 @@ const Achievements = () => {
       await axios.get(`http://localhost:5000/labdata/${id}`)
         .then(response => setData(response.data))
         .catch(error => console.log(error))
+        console.log(data)
     }
+
     fetchdata()
-  }, [])
+  }, [setData])
 
 
 
