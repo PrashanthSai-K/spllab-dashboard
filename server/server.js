@@ -26,6 +26,8 @@ const secret = crypto.randomBytes(32).toString('hex');
 
 const cookieparser = require('cookie-parser');
 
+//JsonWebToken Creator
+const jwt = require('jsonwebtoken');
 
 //Configuring google client
 const client = new OAuth2Client('494572126295-13aremb1sucd9nshgfgemb5gmul0n27c.apps.googleusercontent.com','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');
@@ -57,11 +59,11 @@ app.use(session({
 
 //Making a SQL Connection
 const db = sql.createConnection({
-    host: "10.30.10.41",
+    host: "121.200.55.42",
     user: "lab",
     password: "Spl@765",
     database: "LAB",
-    port: "3306"
+    port: "4063"
 })
 
 //Verifying if the conecction is successful
@@ -99,13 +101,28 @@ app.get("/labdata/:id", (req, res) => {
     })
 })
 
+app.get("/labbasicdata/:id", (req, res)=>{
+    const id = req.params.id;
+    const sql = "SELECT * FROM labdetails WHERE labcode=?"
+
+    db.query(sql,[id],(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+
+})
+
 //Sending projects data to frontend
 app.get("/labproject/:id", (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT * FROM projects WHERE labcode = ?";
-    db.query(sql, [id], (error, result) => {
+    const sql = "SELECT * FROM projects JOIN labdetails ON projects.labcode = labdetails.labcode WHERE projects.labcode = ? AND labdetails.labcode = ?";
+    db.query(sql, [id, id], (error, result) => {
         if (error) console.log(error)
         else {
+            
             res.send(result)
         }
     })
@@ -162,13 +179,14 @@ app.get("/login", async (req, res) => {
                 if(Object.values(result).some(innerres=>Object.values(innerres).includes(payload['sub']))){
                     //getting the role of the user from DB using sub value and sending it to frontend
                     const role = result.filter((item)=> item.user_id== payload.sub).map((item)=> item.role)
-                    console.log(role)
-                    res.send(role)
+                    const token = jwt.sign({roollee: role}, "abcdefghijklmnoplmnopqrstuvwxyz")
+                    res.send(token)
                 }else{//if new add his data to database
                     db.query("INSERT INTO users (name, email,user_id) VALUES (?, ?, ?)", [payload.name,payload.email,payload.sub],(err,result)=>{
                     })
                     const role = "user"
-                    res.send(role)
+                    const token = jwt.sign({roollee: role}, "abcdefghijklmnoplmnopqrstuvwxyz")
+                    res.send(token)
                 }
             })
 

@@ -3,6 +3,12 @@ import '../../css/navbar.css';
 import axios from 'axios';
 import { useGoogleOneTapLogin, GoogleLogin } from '@react-oauth/google';
 import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
+
+
+
+
 
 
 export const MyContext = createContext();
@@ -22,15 +28,31 @@ const Navbar = (props) => {
             }
         }).then(res => {
             const role = res.data;
-            window.location.reload();
-            Cookies.set('session', role, { expires: 1 });
+            window.location.reload()
+            Cookies.set('session', role);   
         })
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
-        setRole(Cookies.get('session'))
-    })
+        const accessToken = Cookies.get('session')
+        if (accessToken){
+            try{
+                const userRole = jwt_decode(accessToken)
+
+                setRole(userRole.roollee);
+            }catch(err) {
+                if(err){
+                    setRole("invalid User")
+                }
+            }
+            
+        }else{
+            setRole('not logged in')
+        }
+        
+    },[])
+
 
     const logout = () => {
         Cookies.remove('session')
@@ -39,18 +61,21 @@ const Navbar = (props) => {
 
     return (
 
-        <header className="header">
-            <a href="/home" className="logo"> <i className="fas fa-hikin"></i> Special lab </a>
 
-            <nav className="navbar">
-                <div id="nav-close" className="fas fa-times"></div>
-                <a href="#home">HOME</a>
-                <a href="#about-us">ABOUT US</a>
-                <a href="#achievements">ACHIEVEMENTS</a>
+        <div class="header">
+            <div class="left-header">Special Lab</div>
+            <div class = "right-main-header">
+                <div class="right-header">
+                    <li>Achievements</li>
+                    <li>Projects</li>
+                    <li>Labs</li>
+                    <li>ContactUs</li>
+
+                </div>
                 {
                     role == 'admin' || role == 'user' ?
-                        <a style={{ display: '', marginLeft: '20%' }} onClick={logout}>Logout</a> :
-                        <a href="" >
+                        <li style={{ display: '', cursor: 'pointer' }} onClick={logout}>Logout</li> :
+                        <a href="" style={{ height: '10px' }} >
                             <GoogleLogin
 
                                 onSuccess={googleLogin}
@@ -59,8 +84,11 @@ const Navbar = (props) => {
                                 useOneTap
                             /></a>
                 }
-            </nav>
-        </header>
+            </div>
+        </div>
+
+
+
     )
 }
 
