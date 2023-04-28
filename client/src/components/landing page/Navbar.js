@@ -48,11 +48,9 @@ const Navbar = (props) => {
                     <li>Projects</li>
                     <li>Labs</li>
                     <li>ContactUs</li>
-
-                </div>
-                {
+                    {
                     role == 'admin' || role == 'user' ?
-                        <li style={{ display: '', cursor: 'pointer' }} onClick={logout}>Logout</li> :
+                        <li style={{ display: '', cursor: 'pointer',listStyle:"none" }} onClick={logout}>Logout</li> :
                         <a href="" style={{ height: '10px' }} >
                             <GoogleLogin
 
@@ -62,6 +60,8 @@ const Navbar = (props) => {
                                 useOneTap
                             /></a>
                 }
+                </div>
+                
             </div>
         </div>
 
