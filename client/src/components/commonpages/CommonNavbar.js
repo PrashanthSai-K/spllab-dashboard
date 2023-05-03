@@ -15,9 +15,7 @@ const CommonNavbar = () => {
 
     return (
 
-
         <div class="header">
-
             <div class="left-header">Special Lab</div>
             <div class="right-main-header">
                 <div class="right-header">
@@ -26,14 +24,8 @@ const CommonNavbar = () => {
                     <li>ContactUs</li>
                 </div>
             </div>
-
         </div >
-
-
-
     )
-
-
 }
 
 export default CommonNavbar

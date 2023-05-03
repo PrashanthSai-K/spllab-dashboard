@@ -57,6 +57,10 @@
     font-size: 2rem;
     color: black;
     padding-top: 5%;
+    text-transform: lowercase;
+  }
+  .category .box-container .box h5::first-letter{
+    text-transform: capitalize;
   }
   .category  h1 {
     font-size: 3rem;

@@ -116,13 +116,14 @@ app.get("/labbasicdata/:id", (req, res)=>{
 //Sending projects data to frontend
 app.get("/labproject/:id", (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT * FROM projects WHERE labcode = ?";
-    db.query(sql, [id], (error, result) => {
+    const sql = "SELECT * FROM projects JOIN labdetails ON projects.labcode = labdetails.labcode WHERE projects.labcode = ? AND labdetails.labcode = ?";
+    db.query(sql, [id, id], (error, result) => {
         if (error) console.log(error)
         else {
+            
             res.send(result)
-        }
-    })
+        }
+    })
 })
 
 
