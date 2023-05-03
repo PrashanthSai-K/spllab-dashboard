@@ -59,11 +59,11 @@ app.use(session({
 
 //Making a SQL Connection
 const db = sql.createConnection({
-    host: "121.200.55.42",
-    user: "lab",
-    password: "Spl@765",
-    database: "LAB",
-    port: "4063"
+    host: "",
+    user: "",
+    password: "",
+    database: "",
+    port: ""
 })
 
 //Verifying if the conecction is successful

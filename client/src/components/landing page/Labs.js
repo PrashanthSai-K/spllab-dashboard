@@ -55,7 +55,7 @@ const Labs = () => {
 
             <h1 className="heading" ># INOVATIVE LABS</h1>
             <motion.div className="box-container"
-                ref={ref}
+                
                 
             >
                 {labData.slice(0, 8).map((data) => {
@@ -63,6 +63,7 @@ const Labs = () => {
                     return (
                         <Link to={`/labpage/${data.labcode}/#labhome-section`} >
                             <motion.div className="box"
+                                ref={ref}
                                 initial="hidden"
                                 variants={boxVariant}
                                 animate={control}
