@@ -9,15 +9,15 @@
   border: none;
   text-decoration: none;
   text-transform: capitalize;
-  -webkit-transition: .2s linear;
+  /* -webkit-transition: .2s linear; */
   transition: .2s linear;
 }
 
 html {
   font-size: 62.5%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  /* scroll-behavior: smooth; */
+  /* scroll-padding-top: 5rem; */
 }
 
 html::-webkit-scrollbar {
@@ -32,6 +32,3 @@ html::-webkit-scrollbar-thumb {
   background: #10221b;
 }
 
-section {
-  padding: 5rem 9%;
-}
