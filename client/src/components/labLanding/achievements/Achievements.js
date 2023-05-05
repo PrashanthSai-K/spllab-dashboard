@@ -60,7 +60,7 @@ const Achievements = () => {
     <>
       <br />
       <center>
-        <div className='achievements-heading'>Achievements of Cloud Computing Laboratory</div>
+        <div className='achievements-heading'># Achievements of Cloud Computing Laboratory</div>
       </center>
 
       <div class="achievements-container" >
