@@ -11,6 +11,7 @@ import Alllabs from './components/landing page/Alllabs';
 import { MyContext } from './components/landing page/Navbar';
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
+import AchievePreview from './components/labLanding/achievements/AchievePreview';
 
 function App() {
 
@@ -43,13 +44,41 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path='/labpage/:id' element={<Labpage />} />
         <Route
-          path='/addachieve'
+          path='/addachieve/:id'
           element={
-              <Incharge>
-                <AchieveReuest />
-              </Incharge>
+            <Incharge>
+              <AchieveReuest />
+            </Incharge>
           }
         />
+
+        <Route
+          path='/addproject/:id'
+          element={
+            <Incharge>
+              <AchieveReuest />
+            </Incharge>
+          }
+        />
+
+        <Route
+          path='/achievepreview/:id'
+          element={
+            <Incharge>
+              <AchievePreview />
+            </Incharge>
+          }
+        />
+
+        <Route
+          path='/projectpreview/:id'
+          element={
+            <Incharge>
+              <AchievePreview />
+            </Incharge>
+          }
+        />
+
         <Route path='/addprojects' element={<ProjectRequest />} />
         <Route path='/alllabs' element={<Alllabs />} />
         <Route path="*" element={<Pagenot />} />
