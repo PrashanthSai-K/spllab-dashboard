@@ -37,8 +37,6 @@ const ProjectRequest = () => {
         }
     }
 
-
-
     return (
         <>
             <form encType='multipart/form-data' onSubmit={formSubmit}>

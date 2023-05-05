@@ -59,11 +59,11 @@ app.use(session({
 
 //Making a SQL Connection
 const db = sql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: "",
-    port: ""
+    host: "10.30.10.41",
+    user: "lab",
+    password: "Spl@765",
+    database: "LAB",
+    port: "3306"
 
 })
 
@@ -92,8 +92,12 @@ const upload = multer({ storage: storage });
 //Sending achievements data to frontend
 app.get("/labdata/:id", (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT * FROM achievements WHERE labcode =?";
-    db.query(sql, [id], (error, result) => {
+
+    const sql = `SELECT * FROM achievements 
+                          JOIN labdetails on achievements.labcode = labdetails.labcode  
+                          WHERE achievements.labcode = ? AND labdetails.labcode = ? AND app_status = ?`;
+                          
+    db.query(sql, [id, id, 'approved'], (error, result) => {
         if (error) {
             console.log(error);
         } else {
@@ -102,7 +106,22 @@ app.get("/labdata/:id", (req, res) => {
     })
 })
 
+app.get('/achievePreview/:id', (req,res)=>{
+    const id = req.params.id;
 
+    const sql = `SELECT * FROM achievements 
+                          JOIN labdetails on achievements.labcode = labdetails.labcode  
+                          WHERE achievements.labcode = ? AND labdetails.labcode = ? AND app_status = ?
+                          ORDER BY achievements.id DESC`;
+
+    db.query(sql, [id,id,'initiated'],(err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result);
+        }
+    })
+})
 
 app.get("/labbasicdata/:id", (req, res)=>{
     const id = req.params.id;
@@ -139,9 +158,9 @@ app.post('/addachieve', upload.single('image'), (req, res) => {
     const data = req.body;
     console.log(data)
     console.log(req.file.filename)
-    const query = "INSERT INTO achievements VALUES (?,?,?,?,?)"
+    const query = "INSERT INTO achievements (labcode, comp_name, comp_desc, comp_image) VALUES (?,?,?,?)"
 
-    db.query(query, ['DEFAULT', data.labcode, data.name, data.name, req.file.filename], (err, resu) => {
+    db.query(query, [data.labcode, data.name, data.name, req.file.filename], (err, resu) => {
         if (err) console.log(err)
         else {
             res.send(resu)

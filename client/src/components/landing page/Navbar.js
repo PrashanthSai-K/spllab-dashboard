@@ -72,7 +72,7 @@ const Navbar = (props) => {
                     <li>ContactUs</li>
                     {
                     role == 'admin' || role == 'user' ?
-                        <li style={{ display: '', cursor: 'pointer',listStyle:"none" }} onClick={logout}>Logout</li> :
+                        <li style={{ display: '', cursor: 'pointer', listStyle:'none', marginTop:'5px', fontSize:'25px' }} onClick={logout}>Logout</li> :
                         <a href="" style={{ height: '10px' }} >
                             <GoogleLogin
 
