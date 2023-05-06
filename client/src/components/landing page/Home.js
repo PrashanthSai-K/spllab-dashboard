@@ -40,6 +40,8 @@ const Home = () => {
     return (
 
 
+          <div>
+
         <motion.div class="main-container"
             ref={ref}
             initial="hidden"
@@ -57,6 +59,7 @@ const Home = () => {
                 </div>
             </center>
         </motion.div >
+        </div>
     )
 }
 

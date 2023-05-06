@@ -17,8 +17,8 @@ const Labpage = () => {
         <CommonLanding />
       </section>
 
-      {/* <Achievements /> */}
-      <Projects />
+      <Achievements />
+      {/* <Projects /> */}
 
     </>
   )
