@@ -60,34 +60,57 @@ const Achievements = () => {
   return (
     <>
       <br />
-      <center>
-        <div className='achievements-heading'># Achievements of Cloud Computing Laboratory</div>
-      </center>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "10px",
+        }}
+      >
+        {data.slice(0, 1).map((datas) => {
+          return (
+            <>
+              <h1># Achievements of {datas.labname} Laboratory</h1>;
+              <Link to={`/addachieve/${datas.labcode}`} key={datas.id}>
+                <button className="addachieve-button fourth">
+                  Add Achievements
+                </button>
+              </Link>
+            </>
+          );
+        })}
+      </div>
 
-      <div class="achievements-container" >
-        <Splide
-          options={options}
-        >
+      <div class="achievements-container">
+        <Splide options={options}>
           {data.map((datas) => {
             return (
               <SplideSlide>
                 <Tilt>
-                  <div class="achievements-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500" key={datas.id} >
-                    <img src={`http://localhost:5000/img/${datas.comp_image}`} />
-                    <div className='achievements-topic'>{datas.comp_name}</div>
+                  <div
+                    class="achievements-card"
+                    data-tilt
+                    data-tilt-max="15"
+                    data-tilt-speed="400"
+                    data-tilt-perspective="500"
+                    key={datas.id}
+                  >
+                    <img
+                      src={`http://localhost:5000/img/${datas.comp_image}`}
+                    />
+                    <div className="achievements-topic">{datas.comp_name}</div>
                     <div class="achievements-content">
                       <h2>{datas.comp_name}</h2>
-                      <p>{datas.comp_desc}
-                      </p>
+                      <p>{datas.comp_desc}</p>
                     </div>
                   </div>
                 </Tilt>
               </SplideSlide>
-            )
+            );
           })}
         </Splide>
       </div>
     </>
-  )
+  );
 }
 export default Achievements
