@@ -15,7 +15,7 @@ const Alllabs = () => {
         try {
             const data = { "labname": labname }
 
-            const req = await axios.post("http://localhost:5000/upload", data);
+            const req = await axios.post("http://192.168.1.4:5000/upload", data);
             console.log(req);
         } catch (er) {
             console.log(er)

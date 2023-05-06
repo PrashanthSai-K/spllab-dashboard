@@ -3,6 +3,12 @@ import '../../css/navbar.css';
 import axios from 'axios';
 import { useGoogleOneTapLogin, GoogleLogin } from '@react-oauth/google';
 import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
+
+
+
+
 
 
 export const MyContext = createContext();
@@ -22,15 +28,31 @@ const Navbar = (props) => {
             }
         }).then(res => {
             const role = res.data;
-            window.location.reload();
-            Cookies.set('session', role, { expires: 1 });
+            window.location.reload()
+            Cookies.set('session', role);   
         })
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
-        setRole(Cookies.get('session'))
-    })
+        const accessToken = Cookies.get('session')
+        if (accessToken){
+            try{
+                const userRole = jwt_decode(accessToken)
+
+                setRole(userRole.roollee);
+            }catch(err) {
+                if(err){
+                    setRole("invalid User")
+                }
+            }
+            
+        }else{
+            setRole('not logged in')
+        }
+        
+    },[])
+
 
     const logout = () => {
         Cookies.remove('session')
