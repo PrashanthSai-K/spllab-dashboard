@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import styled from "styled-components";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -80,6 +83,31 @@ const Projects = () => {
     }
   }, [control, inView]);
 
+  const [options, setOptions] = useState({
+    perPage: 1,
+    rewind: true,
+    arrows: true,
+    autoplay: true,
+    interval: 2000,
+    type: "slide",
+    perMove: 1,
+    direction: "ltr",
+    width: "85vw",
+    gap: 1,
+    infinity: true,
+  });
+
+  const StyledSplide = styled(Splide)`
+    .splide__arrow--prev {
+      margin-right: 100px;
+    }
+    .splide__arrow--next {
+      margin-left: 10px;
+    }
+  `;
+
+  console.log(data);
+
   return (
     <>
       <br />
@@ -91,18 +119,48 @@ const Projects = () => {
         }}
       >
         {data.slice(0, 1).map((datas) => {
-          return(
-          <>
-            <h1># Projects of {datas.labname} Laboratory</h1>;
-            <Link to={`/addproject/${datas.labcode}`} key={datas.id}>
-              <button className="addachieve-button fourth">Add Projects</button>
-            </Link>
-          </>
-        )})}
+          return (
+            <>
+              <h1># Projects of {datas.labname} Laboratory</h1>;
+              <Link to={`/addproject/${datas.labcode}`} key={datas.id}>
+                <button className="addachieve-button fourth">
+                  Add Projects
+                </button>
+              </Link>
+            </>
+          );
+        })}
       </div>
       <br />
-      <div style={{ position: "relative", height: "auto", width: "100vw" }}>
-       
+      <div
+        style={{ position: "relative", height: "auto", width: "100vw" }}
+      ></div>
+      <div className="project-main-container">
+        <center>
+          <Splide options={options}>
+            {data.map((datas) => {
+              return (
+                <>
+                  <SplideSlide>
+                    <div className="project-card">
+                      <img
+                        src={`http://localhost:5000/img/${datas.pro_image}`}
+                        alt=""
+                        style={{
+                          objectFit: "cover",
+                          height: "  30%",
+                          width: "auto",
+                          aspectRatio: "3/2",
+                        }}
+                      />
+                      <div className="project-heading">{datas.pro_name}</div>
+                    </div>
+                  </SplideSlide>
+                </>
+              );
+            })}
+          </Splide>
+        </center>
       </div>
     </>
   );
