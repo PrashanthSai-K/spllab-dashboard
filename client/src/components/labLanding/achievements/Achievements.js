@@ -76,6 +76,7 @@ const Achievements = () => {
                 <Tilt>
                   <div class="achievements-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500" key={datas.id} >
                     <img src={`http://localhost:5000/img/${datas.comp_image}`} />
+                    <div className='achievements-topic'>{datas.comp_name}</div>
                     <div class="achievements-content">
                       <h2>{datas.comp_name}</h2>
                       <p>{datas.comp_desc}
