@@ -33,7 +33,6 @@ const Projects = () => {
   const slidePreview = screenWidth < 768 ? "1" : 2.5;
   const offset = null;
 
-
   //To get Data for projects
   const { id } = useParams();
   const [data, setData] = useState([]);
@@ -91,103 +90,19 @@ const Projects = () => {
           padding: "10px",
         }}
       >
-        <h1># Projects of Cloud Computing Laboratory</h1>
         {data.slice(0, 1).map((datas) => {
-          return (
+          return(
+          <>
+            <h1># Projects of {datas.labname} Laboratory</h1>;
             <Link to={`/addproject/${datas.labcode}`} key={datas.id}>
-              <button style={{ padding: "10px", cursor: "pointer" }}>
-                Add Projects
-              </button>
+              <button className="addachieve-button fourth">Add Projects</button>
             </Link>
-          );
-        })}
+          </>
+        )})}
       </div>
       <br />
-      <div style={{position:'relative',height:'auto', width:'100vw'}}>
-        
-        <center>
-          <motion.div className="pro-cont" ref={ref}>
-            {data.length > 0 && (
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={slidePreview}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 2.5,
-                }}
-                breakpoints={{
-                  600: {
-                    // set the breakpoint at 768px screen width
-                    slidesPerView: "auto", // set the number of slides per view for smaller screens
-                  },
-                }}
-                pagination={{ el: ".swiper-pagination", clickable: true }}
-                navigation={{
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                  clickable: true,
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                // className="swiper_container"
-              >
-                {data.map((item) => {
-                  return (
-                    <div>
-                      <SwiperSlide>
-                        <motion.div
-                          class="project-card"
-                          key={item.id}
-                          initial="hidden"
-                          animate={control}
-                          variants={boxVariant}
-                          style={{
-                            backgroundImage: `url(http://localhost:5000/img/${item.pro_image})`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                          }}
-                        >
-                          <div className="lab-heading">{item.labname}</div>
-
-                          <div class="project-content">
-                            <div>
-                              {item.pro_name}
-                              {item.pro_desc}
-                            </div>
-                            <div class="tags">
-                              <a href="" target="_blank">
-                                #achieve
-                              </a>
-                              <a href="" target="_blank">
-                                #more
-                              </a>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </SwiperSlide>
-                    </div>
-                  );
-                })}
-
-                <div className="slider-controler">
-                  <div className="swiper-button-prev slider-arrow">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                  </div>
-                  <div className="swiper-button-next slider-arrow">
-                    <ion-icon
-                      name="arrow-forward-outline"
-                    ></ion-icon>
-                  </div>
-                  <div className="swiper-pagination"></div>
-                </div>
-              </Swiper>
-            )}
-          </motion.div>
-        </center>
+      <div style={{ position: "relative", height: "auto", width: "100vw" }}>
+       
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../../css/achievements.css';
@@ -40,6 +40,7 @@ const Achievements = () => {
     direction: 'ltr',
     width: screenWidth > 700 ? (screenWidth < 1300 ? '100vw' : '85vw') : '100vw',
     gap: 1,
+    infinity:true,
   })
 
 
@@ -64,9 +65,6 @@ const Achievements = () => {
       </center>
 
       <div class="achievements-container" >
-
-
-
         <Splide
           options={options}
         >

@@ -18,7 +18,7 @@ const Labpage = () => {
       </section>
 
       <Achievements />
-      {/* <Projects /> */}
+      <Projects />
 
     </>
   )
