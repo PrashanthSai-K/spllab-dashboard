@@ -60,21 +60,9 @@ const Achievements = () => {
   return (
     <>
       <br />
-      {data.slice(0,1).map((datas)=>{
-        return (
-          <div className="achiements-header">
-            <div className="achievements-heading">
-              # Achievements of {datas.labname} Laboratory
-            </div>
-            <Link to={`/addachieve/${datas.labcode}`}>
-              <button className="addachieve-button fourth">
-                Add Achievements
-              </button>
-            </Link>
-          </div>
-        ); 
-      })}
-      
+      <center>
+        <div className='achievements-heading'># Achievements of Cloud Computing Laboratory</div>
+      </center>
 
       <div class="achievements-container" >
         <Splide
@@ -85,7 +73,8 @@ const Achievements = () => {
               <SplideSlide>
                 <Tilt>
                   <div class="achievements-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="500" key={datas.id} >
-                    <img src={`http://localhost:5000/img/${datas.comp_image}`} alt='alter_img'/>
+                    <img src={`http://localhost:5000/img/${datas.comp_image}`} />
+                    <div className='achievements-topic'>{datas.comp_name}</div>
                     <div class="achievements-content">
                       <h2>{datas.comp_name}</h2>
                       <p>{datas.comp_desc}
