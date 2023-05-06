@@ -57,15 +57,17 @@ app.use(session({
     saveUninitialized:true
 }));
 
+require('dotenv').config();
+
 //Making a SQL Connection
 const db = sql.createConnection({
-    host: "10.30.10.41",
-    user: "lab",
-    password: "Spl@765",
-    database: "LAB",
-    port: "3306"
+  host: process.env.DB_HOST_LOCAL,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT_LOCAL,
+});
 
-})
 
 //Verifying if the conecction is successful
 db.connect((err) => {

@@ -39,7 +39,6 @@
   margin:30px;
   border-radius:25px;
   background-color:rgba(255,255,255, 0.1);
-  box-shadow: 10px 10px 30px rgba(13, 13, 13, 0.881);
   overflow:hidden;
   display:flex;
   justify-content:center;
@@ -103,6 +102,46 @@
   font-size: 30px;
   font-weight: 900;
 }
+
+.achiements-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.addachieve-button{
+  position: relative;
+  padding: 10px;
+  color: white;
+  background-color: orangered;
+  font-weight: 200;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.fourth {
+  border: 1px solid orangered;
+  color: white;
+  background-image: linear-gradient(45deg, #ffff 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: all 0.2s ease-in-out;
+}
+
+.fourth:active{
+  transform: scale(0.8);
+}
+
+.fourth:hover {
+  background-position: 0;
+  color: orangered;
+}
+
+
+
+
+
 
 
 
